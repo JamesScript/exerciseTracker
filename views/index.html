@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html>
-
    <head>
       <title>Exercise Tracker | Free Code Camp</title>
-      <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
+      <link rel="shortcut icon" href="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/screamIcon.png" type="image/x-icon"/>
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
       <link href="style.css" rel="stylesheet" type="text/css">
    </head>
 
    <body>
+     <img class="overlay" src="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/screamingMuscle.png"/>
       <div class="container">
-         <h1>Exercise tracker</h1>
+        <br>
+        <a href="#viewForms">
+          <header>
+            <h1 class="fieryShadow textStroke">EXTREME EXERCISE TRACKING!!!</h1>
+            <img id="mrMuscle" src="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/screamingMuscle.png"/>
+            <h2 class="fieryShadow textStroke">
+              NO MORE FAFFING! GET TRACKING!
+            </h2>
+          </header>
+        </a>
+        <br>
+        <div class="gap" id="viewForms">
+          <img class="arrow" src="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/fire.png"/>
+        </div>
+        <section id="formSection">
           <form action="/api/exercise/new-user" method="POST">
             <h3>Create a New User</h3>
-            <p><code>POST /api/exercise/new-user</code></p>
             <input id="uname" type="text" name="username" placeholder="username">
+            <input id="newpw" type="password" name="password" placeholder="password">
             <input type="submit" value="Submit">
           </form>
           <form action="/api/exercise/add" method="post">
             <h3>Add exercises</h3>
-            <p><code>POST /api/exercise/add</code></p>
             <input id="uid" type="text" name="userId" placeholder="userId*">
+            <input id="pw" type="password" name="password" placeholder="password">
             <input id="desc" type="text" name="description" placeholder="description*">
             <input id="dur" type="text" name="duration" placeholder="duration* (mins.)">
             <input id="dat" type="text" name="date" placeholder="date (yyyy-mm-dd)">
             <input type="submit" value="Submit">
           </form>
-          <p><strong>GET users's exercise log: </strong><code>GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code></p>
-          <h2>
-          Tests:
-          </h2>
-          <a href="/api/exercise/log?userId&#61;cJntb9rpH"><p>
-            /api/exercise/log?userId=cJntb9rpH
-            </p></a>
-          <a href="/api/exercise/log?userId&#61;cJntb9rpH&amp;from&#61;2000-01-01"><p>
-            /api/exercise/log?userId=cJntb9rpH&amp;from=2000-01-01
-            </p></a>
-          <a href="/api/exercise/log?userId&#61;cJntb9rpH&amp;from&#61;2000-01-01&amp;to&#61;2018-01-01"><p>
-            /api/exercise/log?userId=cJntb9rpH&amp;from=2000-01-01&amp;to=2018-01-01
-            </p></a>
-          <a href="/api/exercise/log?userId&#61;cJntb9rpH&amp;from&#61;2000-01-01&amp;to&#61;2018-01-01&amp;limit&#61;1"><p>
-            /api/exercise/log?userId=cJntb9rpH&amp;from=2000-01-01&amp;to=2018-01-01&amp;limit=1
-            </p></a>
-          <p><strong>{ }</strong> = required, <strong>[ ]</strong> = optional</p>
-          <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+        </section>
+        <div class="gap">
+          <img class="arrow" src="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/fire.png"/>
+        </div>
+        <main>
+          <h1 id="tableHeader" class="fieryShadow textStroke">
+            EXTREME ACHEIVEMENTS!!!
+          </h1>
+          <div id="dataTable"/>
+        </main>
+        <div class="gap">
+          
+        </div>
       </div>
+     <script src="coolStuff.js"></script>
    </body>
 
 </html>
