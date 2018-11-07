@@ -84,7 +84,10 @@ app.post("/api/exercise/new-user/", (req, res) => {
   User.find({username: _user}, (err, data) => {
     if (err) return console.error(err);
     if (data.length > 0) {
-      res.send("Username already taken. Your ID is: " + data[0].id);
+      res.send("Username already taken. <br> Your ID is: " 
+               + data[0].id
+               + "<br><a href='https://jc-fcc-exercise-tracker.glitch.me/'>Back</a>"
+              );
     } else {
       if (req.body.password.length < 1) return res.send("Please enter a password");
       const _id = shortid.generate();
@@ -107,8 +110,10 @@ app.post("/api/exercise/new-user/", (req, res) => {
 app.post("/api/exercise/add/", (req, res) => {
   const _id = req.body.userId;
   const _pw = hash(req.body.password + process.env.SALT);
-  User.find({id: _id}, (err, data) => {
+  // Prior to this, user used ID to sign in, now it's their username
+  User.find({username: _id}, (err, data) => {
     if (err) return console.error(err);
+    if (!data.length) return res.send("Username not found.");
     if (_pw !== data[0].password) return res.send("Incorrect Password. I don't know how to do password resets yet. Tough luck mate!");
     let exArr = data[0].exercises.slice();
     const d = req.body.date;
@@ -120,7 +125,7 @@ app.post("/api/exercise/add/", (req, res) => {
       date: date
     };
     exArr.push(exercise);
-    User.findOneAndUpdate({id: _id}, {exercises: exArr}, {new: true}, (err, data) => {
+    User.findOneAndUpdate({username: _id}, {exercises: exArr}, {new: true}, (err, data) => {
       if (err) return console.error(err);
       const resObj = {
         username: data.username,
@@ -160,5 +165,3 @@ app.use((err, req, res, next) => {
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log('Your app is listening on port ' + listener.address().port);
 });
-
-// console.log(hash("James"));

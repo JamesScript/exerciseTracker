@@ -26,12 +26,14 @@ h1 {
   font-size: 8vh;
   margin: 0;
   letter-spacing: 3px;
+  z-index: 3;
 }
 
 h2 {
 /*   font-family: "Oswald"; */
   font-size: 6vh;
   letter-spacing: 3px;
+  z-index: 10;
 }
 
 header {
@@ -39,16 +41,11 @@ header {
   padding: 10px;
   overflow: hidden;
   position: relative;
-  cursor: pointer;
   background: rgba(0, 0, 0, 0.95);
   -webkit-box-shadow: 21px 15px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 21px 15px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 21px 15px 5px 0px rgba(0,0,0,0.75);
   border: solid 5px #AAA;
-}
-
-header:hover {
-  border: solid 5px white;
 }
 
 /* @media only screen and (max-width: 700px) {
@@ -83,6 +80,44 @@ main {
   }
 }
 
+.myButton {
+	-moz-box-shadow:inset 0px 0px 10px 5px #cf866c;
+	-webkit-box-shadow:inset 0px 0px 10px 5px #cf866c;
+	box-shadow:inset 0px 0px 10px 5px #cf866c;
+	background-color:#d0451b;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:50%;
+	border:2px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:16px;
+	padding:10px 18px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+}
+.myButton:hover {
+	background-color:#bc3315;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+#options {
+  padding: 10px;
+  font-family: Verdana;
+  letter-spacing: 3px;
+}
+
+#sortForm {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
 #dataTable {
   display: flex;
   flex-wrap: wrap;
@@ -101,8 +136,25 @@ main {
   min-width: 200px;
 }
 
+.totalMins {
+  color: #AAA;
+}
+
+.totalMins:hover {
+  color: black;
+}
+
 .bold {
   font-weight: bold;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
 }
 
 .fieryShadow {
@@ -115,6 +167,7 @@ main {
 }
 
 .gap {
+  margin-top: 10vh;
   height: 30vh;
 }
 
@@ -136,33 +189,41 @@ main {
 #formSection {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
+/*   flex-wrap: wrap; */
 }
 
-form {
+.upperForms {
   margin-bottom: 25px;
   padding: 15px;
 /*   background-color: #87D37C; */
-  background: rgba(0, 0, 0, 0.95);
+/*   background: rgba(0, 0, 0, 0.55); */
   display: inline-block;
   width: 100%;
   height: 340px;
   max-width: 340px;
   font-family: "Lobster", sans-serif;
-  -webkit-box-shadow: 21px 15px 5px 0px rgba(0,0,0,0.75);
+/*   -webkit-box-shadow: 21px 15px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 21px 15px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 21px 15px 5px 0px rgba(0,0,0,0.75);
-  border: solid 5px #AAA;
+  box-shadow: 21px 15px 5px 0px rgba(0,0,0,0.75); */
+/*   border: solid 5px #AAA; */
+  z-index: 2;
 }
 
 input {
   display: block;
   margin-bottom: 10px;
   padding: 5px;
-  width: 100%;
+/*   width: 100%; */
   border: 1px solid lightgrey;
   border-radius: 3px;
   font-size: 16px;
+  -webkit-box-shadow: 8px 15px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 8px 15px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 8px 15px 5px 0px rgba(0,0,0,0.75);
+}
+
+.upperForms input {
+  width: 100%;
 }
 
 input[type=submit] {
@@ -170,8 +231,11 @@ input[type=submit] {
   border-radius: 3px;
   background-color: #E4F1FE;
   border: 1px solid grey;
-  box-shadow: 2px 2px #999;
+/*   box-shadow: 2px 2px #999; */
   cursor: pointer;
+  -webkit-box-shadow: 8px 15px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 8px 15px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 8px 15px 5px 0px rgba(0,0,0,0.75);
 }
 
 input[type=submit]:hover {
@@ -186,12 +250,15 @@ code {
 }
 
 #mrMuscle {
+  position: absolute;
+  z-index: 0;
 /*   -webkit-clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
   clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%); */
 /*   -webkit-clip-path: polygon(50% 0%, 80% 10%, 95% 35%, 95% 70%, 80% 90%, 50% 100%, 20% 90%, 5% 70%, 5% 33%, 20% 10%);
   clip-path: polygon(50% 0%, 80% 10%, 95% 35%, 95% 70%, 80% 90%, 50% 100%, 20% 90%, 5% 70%, 5% 33%, 20% 10%); */
-  border: 5px outset #BBB;
-  width: 25vw;
+/*   border: 5px outset #BBB; */
+/*   width: 5vw; */
+/*   height: 5vh; */
 }
 
 @keyframes moveArrow {
