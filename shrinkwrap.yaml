@@ -151,7 +151,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-7FYjOGgDKQkgcXDDlEjiREndH8Q=
-      tarball: 'http://registry.npmjs.org/es6-promise/-/es6-promise-3.2.1.tgz'
   /escape-html/1.0.3:
     dev: false
     resolution:
@@ -199,7 +198,6 @@ packages:
       node: '>= 0.10.0'
     resolution:
       integrity: sha1-avilAjUNsyRuzEvs9rWjTSL37VM=
-      tarball: 'http://registry.npmjs.org/express/-/express-4.16.3.tgz'
   /finalhandler/1.1.1:
     dependencies:
       debug: 2.6.9
@@ -254,7 +252,6 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-i1VoC7S+KDoLW/TqLjhYC+HZMg0=
-      tarball: 'http://registry.npmjs.org/http-errors/-/http-errors-1.6.3.tgz'
   /iconv-lite/0.4.19:
     dev: false
     engines:

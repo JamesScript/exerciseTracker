@@ -11,36 +11,33 @@
      <img class="overlay" src="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/screamingMuscle.png"/>
       <div class="container">
         <br>
-        <a href="#viewForms">
-          <header>
-            <h1 class="fieryShadow textStroke">EXTREME EXERCISE TRACKING!!!</h1>
-            <img id="mrMuscle" src="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/screamingMuscle.png"/>
-            <h2 class="fieryShadow textStroke">
-              NO MORE FAFFING! GET TRACKING!
-            </h2>
-          </header>
-        </a>
+        <header>
+          <h1 class="fieryShadow textStroke">EXTREME EXERCISE TRACKING!!!</h1>
+          <div class="mid">
+            <section id="formSection">
+              <form class="upperForms" action="/api/exercise/new-user" method="post">
+                <h3>Create a New User</h3>
+                <input id="uname" type="text" name="username" placeholder="username">
+                <input id="newpw" type="password" name="password" placeholder="password">
+                <input type="submit" value="Submit">
+              </form>
+              <img id="mrMuscle" src="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/screamingMuscle.png"/>
+              <form class="upperForms" action="/api/exercise/add" method="post">
+                <h3>Add exercises</h3>
+                <input id="uid" type="text" name="userId" placeholder="username">
+                <input id="pw" type="password" name="password" placeholder="password">
+                <input id="desc" type="text" name="description" placeholder="description">
+                <input id="dur" type="text" name="duration" placeholder="duration (mins.)">
+                <input id="dat" type="text" name="date" placeholder="date (yyyy-mm-dd)">
+                <input type="submit" value="Submit">
+              </form>
+            </section>
+            </div>
+          <h2 class="fieryShadow textStroke">
+            NO MORE FAFFING! GET TRACKING!
+          </h2>
+        </header>
         <br>
-        <div class="gap" id="viewForms">
-          <img class="arrow" src="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/fire.png"/>
-        </div>
-        <section id="formSection">
-          <form action="/api/exercise/new-user" method="POST">
-            <h3>Create a New User</h3>
-            <input id="uname" type="text" name="username" placeholder="username">
-            <input id="newpw" type="password" name="password" placeholder="password">
-            <input type="submit" value="Submit">
-          </form>
-          <form action="/api/exercise/add" method="post">
-            <h3>Add exercises</h3>
-            <input id="uid" type="text" name="userId" placeholder="userId*">
-            <input id="pw" type="password" name="password" placeholder="password">
-            <input id="desc" type="text" name="description" placeholder="description*">
-            <input id="dur" type="text" name="duration" placeholder="duration* (mins.)">
-            <input id="dat" type="text" name="date" placeholder="date (yyyy-mm-dd)">
-            <input type="submit" value="Submit">
-          </form>
-        </section>
         <div class="gap">
           <img class="arrow" src="https://s3.eu-west-2.amazonaws.com/fccpictureuploads/fire.png"/>
         </div>
@@ -48,7 +45,56 @@
           <h1 id="tableHeader" class="fieryShadow textStroke">
             EXTREME ACHEIVEMENTS!!!
           </h1>
-          <div id="dataTable"/>
+          <div class="center">
+            <button class="myButton" id="showBtn" onclick="showOptions()">
+              &#9776;
+            </button>
+            <button class="myButton" id="hideBtn" onclick="hideOptions()">
+              X
+            </button>
+          </div>
+          <div id="options">
+            <h3>
+                Sort by: 
+            </h3>
+            <div class="center">
+              <form onchange="arrangeData()" id="sortForm" action="">
+                <div class="flex">
+                  <input id="memRad" type="radio" name="sortBy" value="Membership" checked="checked">
+                  <label for="memRad">Last Update</label>
+                </div>
+                <div class="flex">
+                  <input id="alpRad" type="radio" name="sortBy" value="Alphabetical">
+                  <label for="alpRad">Alphabetical</label>
+                </div>
+                <div class="flex">
+                  <input id="exeRad" type="radio" name="sortBy" value="Exercise Time">
+                  <label for="exeRad Time">Exercise Time</label>
+                </div>
+              </form>
+              <br>
+            </div>
+            <div class="center">
+              <input onchange="revSort()" id="reverse" name="reverse" type="checkbox">
+              <label for="reverse">Reverse</label>
+            </div>        
+            <div class="center">
+              <label for="from">from: </label>
+              <input onchange="limitDates()" id="from" type="date" name="from">
+            </div>
+            <div class="center">
+              <label for="to">to: </label>
+              <input onchange="limitDates()" id="to" type="date" name="from">
+            </div>
+<!--             <div class="center">
+              <label for="limit">limit: </label>
+              <input id="limit" type="number" name="from">
+            </div> -->
+            <div class="center">
+              <input onkeyup="searchName()" id="searchByName" placeholder="username">
+            </div>
+          </div>
+          <div id="dataTable">Loading...</div>
         </main>
         <div class="gap">
           
